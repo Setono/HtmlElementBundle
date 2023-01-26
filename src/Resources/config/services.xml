@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+        <services>
+            <!-- Factory -->
+            <service id="Setono\HtmlElementBundle\Factory\HtmlElementFactoryInterface" alias="setono_html_element.factory.html_element"/>
+
+            <service id="setono_html_element.factory.html_element" class="Setono\HtmlElementBundle\Factory\HtmlElementFactory">
+                <argument>%setono_html_element.elements%</argument>
+            </service>
+
+            <!-- Twig -->
+            <service id="setono_html_element.twig.extension" class="Setono\HtmlElementBundle\Twig\Extension">
+                <tag name="twig.extension"/>
+            </service>
+            <service id="setono_html_element.twig.runtime" class="Setono\HtmlElementBundle\Twig\Runtime">
+                <argument type="service" id="setono_html_element.factory.html_element"/>
+                <tag name="twig.runtime"/>
+            </service>
+        </services>
+</container>
