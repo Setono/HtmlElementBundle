@@ -1,6 +1,6 @@
 {
     "name": "setono/html-element-bundle",
-    "description": "Work with the Meta / Facebook Conversions API in your Symfony application",
+    "description": "Easily create reusable HTML elements and use them in your Symfony (with Twig) application",
     "license": "MIT",
     "type": "symfony-bundle",
     "authors": [
