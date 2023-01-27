@@ -8,6 +8,7 @@ namespace Setono\HtmlElementBundle\Config;
  * This collection represents all elements configured in the bundle configuration
  *
  * todo should we verify that all 'inherits' exist?
+ * todo verify that we don't have cyclic 'inherits'
  */
 final class ElementCollection
 {
