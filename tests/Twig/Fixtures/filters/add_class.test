@@ -1,0 +1,12 @@
+--TEST--
+"add_class" filter
+--TEMPLATE--
+{{ element|add_class('uppercase') }}
+{{ element|add_class('uppercase font-bold') }}
+{{ element|add_class('uppercase', 'font-bold') }}
+--DATA--
+return ['element' => new \Setono\HtmlElement\HtmlElement('h1', 'My header')]
+--EXPECT--
+<h1 class="uppercase">My header</h1>
+<h1 class="uppercase font-bold">My header</h1>
+<h1 class="uppercase font-bold">My header</h1>
