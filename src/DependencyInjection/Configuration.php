@@ -23,6 +23,8 @@ final class Configuration implements ConfigurationInterface
                     ->useAttributeAsKey('name')
                     ->arrayPrototype()
                         ->children()
+                            ->scalarNode('tag')->cannotBeEmpty()->end()
+                            ->scalarNode('inherits')->cannotBeEmpty()->end()
                             ->arrayNode('attributes')
                                 ->useAttributeAsKey('name')
                                 ->scalarPrototype()->end()

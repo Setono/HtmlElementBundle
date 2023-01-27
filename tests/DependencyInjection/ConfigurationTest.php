@@ -26,20 +26,46 @@ class ConfigurationTest extends TestCase
             [
                 'elements' => [
                     [
+                        'name' => 'abstract-button',
+                        'attributes' => [
+                            'class' => 'uppercase font-bold',
+                        ],
+                    ],
+                    [
+                        'name' => 'button.primary',
+                        'inherits' => 'abstract-button',
+                        'tag' => 'button',
+                        'attributes' => [
+                            'class' => 'text-blue',
+                            'id' => 'submit',
+                        ],
+                    ],
+                    [
                         'name' => 'h1',
                         'attributes' => [
-                            'class' => 'btn btn-primary',
-                            'id' => 'btn-submit',
+                            'class' => 'uppercase',
                         ],
                     ],
                 ],
             ],
         ], [
             'elements' => [
+                'abstract-button' => [
+                    'attributes' => [
+                        'class' => 'uppercase font-bold',
+                    ],
+                ],
+                'button.primary' => [
+                    'inherits' => 'abstract-button',
+                    'tag' => 'button',
+                    'attributes' => [
+                        'class' => 'text-blue',
+                        'id' => 'submit',
+                    ],
+                ],
                 'h1' => [
                     'attributes' => [
-                        'class' => 'btn btn-primary',
-                        'id' => 'btn-submit',
+                        'class' => 'uppercase',
                     ],
                 ],
             ],

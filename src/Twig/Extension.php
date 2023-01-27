@@ -12,7 +12,7 @@ final class Extension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('element', [Runtime::class, 'element']),
+            new TwigFunction('element', [Runtime::class, 'element'], ['is_safe' => ['html']]),
         ];
     }
 }

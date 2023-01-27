@@ -3,11 +3,16 @@
 <container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://symfony.com/schema/dic/services"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
         <services>
+            <!-- Config -->
+            <service id="setono_html_element.config.element_collection" class="Setono\HtmlElementBundle\Config\ElementCollection">
+                <argument>%setono_html_element.elements%</argument>
+            </service>
+
             <!-- Factory -->
             <service id="Setono\HtmlElementBundle\Factory\HtmlElementFactoryInterface" alias="setono_html_element.factory.html_element"/>
 
             <service id="setono_html_element.factory.html_element" class="Setono\HtmlElementBundle\Factory\HtmlElementFactory">
-                <argument>%setono_html_element.elements%</argument>
+                <argument type="service" id="setono_html_element.config.element_collection"/>
             </service>
 
             <!-- Twig -->
