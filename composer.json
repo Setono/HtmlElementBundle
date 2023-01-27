@@ -14,11 +14,8 @@
         "setono/html-element": "dev-master",
         "symfony/config": "^6.0",
         "symfony/dependency-injection": "^6.0",
-        "symfony/event-dispatcher": "^6.0",
-        "symfony/event-dispatcher-contracts": "^1.1 || ^2.5 || ^3.1",
         "symfony/http-foundation": "^6.0",
         "symfony/http-kernel": "^6.0",
-        "symfony/messenger": "^6.0",
         "symfony/twig-bundle": "^6.0",
         "twig/twig": "^3.5"
     },
@@ -28,8 +25,8 @@
         "nyholm/symfony-bundle-test": "^2.0",
         "phpspec/prophecy-phpunit": "^2.0",
         "phpunit/phpunit": "^9.5",
-        "psalm/plugin-phpunit": "^0.17",
-        "psalm/plugin-symfony": "^3.1",
+        "psalm/plugin-phpunit": "^0.18",
+        "psalm/plugin-symfony": "^4.0",
         "setono/code-quality-pack": "^2.4"
     },
     "prefer-stable": true,
