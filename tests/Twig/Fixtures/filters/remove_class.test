@@ -1,0 +1,10 @@
+--TEST--
+"remove_class" filter
+--TEMPLATE--
+{{ element|remove_class('btn') }}
+{{ element|remove_class('btn', 'btn-primary') }}
+--DATA--
+return ['element' => (new \Setono\HtmlElement\HtmlElement('button', 'Click me'))->withClass('btn btn-primary')]
+--EXPECT--
+<button class="btn-primary">Click me</button>
+<button class>Click me</button>

@@ -22,11 +22,25 @@ final class Extension extends AbstractExtension
     {
         return [
             new TwigFilter('add_class', [$this, 'addClass'], ['is_safe' => ['html']]),
+            new TwigFilter('remove_class', [$this, 'removeClass'], ['is_safe' => ['html']]),
         ];
     }
 
-    public function addClass(HtmlElement $htmlElement, string ...$class): HtmlElement
+    public function addClass(HtmlElement $htmlElement, string ...$classes): HtmlElement
     {
-        return $htmlElement->withClass(...$class);
+        foreach ($classes as $class) {
+            $htmlElement = $htmlElement->withClass($class);
+        }
+
+        return $htmlElement;
+    }
+
+    public function removeClass(HtmlElement $htmlElement, string ...$classes): HtmlElement
+    {
+        foreach ($classes as $class) {
+            $htmlElement = $htmlElement->withoutClass($class);
+        }
+
+        return $htmlElement;
     }
 }

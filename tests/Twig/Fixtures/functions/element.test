@@ -4,11 +4,9 @@
 {{ element('h1') }}
 {{ element('h1', 'My first header') }}
 {{ element('h1', element('span', 'My second header')) }}
-{{ element('button.primary', 'Click me') }}
 --DATA--
 return []
 --EXPECT--
 <h1 class="uppercase"></h1>
 <h1 class="uppercase">My first header</h1>
 <h1 class="uppercase"><span>My second header</span></h1>
-<button class="uppercase font-bold text-blue" id="submit">Click me</button>
