@@ -18,7 +18,7 @@ class ExtensionTest extends IntegrationTestCase
         $runtimeLoader = new class() implements RuntimeLoaderInterface {
             public function load(string $class): Runtime
             {
-                $elementCollection = new ElementCollection([
+                $elementCollection = ElementCollection::fromArray([
                     'abstract-button' => [
                         'attributes' => [
                             'class' => 'uppercase font-bold',

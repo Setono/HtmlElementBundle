@@ -26,13 +26,13 @@ final class HtmlElementFactory implements HtmlElementFactoryInterface
         $htmlElement = null === $configElement->tag ? new HtmlElement($element, ...$children) : new HtmlElement($configElement->tag, ...$children);
 
         foreach ($this->getAncestors($configElement) as $parent) {
-            foreach ($parent->attributes as $attribute => $value) {
-                $htmlElement = $htmlElement->withAttribute($attribute, $value);
+            foreach ($parent->attributes as $attribute) {
+                $htmlElement = $htmlElement->withAttribute($attribute->name, $attribute->value, $attribute->overwrite);
             }
         }
 
-        foreach ($configElement->attributes as $attribute => $value) {
-            $htmlElement = $htmlElement->withAttribute($attribute, $value);
+        foreach ($configElement->attributes as $attribute) {
+            $htmlElement = $htmlElement->withAttribute($attribute->name, $attribute->value, $attribute->overwrite);
         }
 
         return $htmlElement;

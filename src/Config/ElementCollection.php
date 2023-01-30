@@ -18,11 +18,20 @@ final class ElementCollection
     /**
      * @param array<string, array{inherits?: string, tag?: string, attributes: array<string, string>}> $configuration
      */
-    public function __construct(array $configuration)
+    public static function fromArray(array $configuration): self
     {
+        $obj = new self();
+
         foreach ($configuration as $name => $element) {
-            $this->elements[$name] = new Element($name, $element);
+            $obj->add(Element::fromArray($name, $element));
         }
+
+        return $obj;
+    }
+
+    public function add(Element $element): void
+    {
+        $this->elements[$element->name] = $element;
     }
 
     /**

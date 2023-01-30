@@ -36,7 +36,7 @@ final class HtmlElementFactoryTest extends TestCase
 
     private function getFactory(): HtmlElementFactoryInterface
     {
-        $elementCollection = new ElementCollection([
+        $elementCollection = ElementCollection::fromArray([
             'abstract-button' => [
                 'attributes' => [
                     'class' => 'uppercase font-bold',

@@ -5,6 +5,7 @@
         <services>
             <!-- Config -->
             <service id="setono_html_element.config.element_collection" class="Setono\HtmlElementBundle\Config\ElementCollection">
+                <factory class="Setono\HtmlElementBundle\Config\ElementCollection" method="fromArray"/>
                 <argument>%setono_html_element.elements%</argument>
             </service>
 
