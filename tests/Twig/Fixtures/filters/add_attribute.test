@@ -1,0 +1,8 @@
+--TEST--
+"add_attribute" filter
+--TEMPLATE--
+{{ element|add_attribute('type', 'submit') }}
+--DATA--
+return ['element' => new \Setono\HtmlElement\HtmlElement('button', 'My button')]
+--EXPECT--
+<button type="submit">My button</button>

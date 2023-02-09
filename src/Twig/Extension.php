@@ -21,9 +21,15 @@ final class Extension extends AbstractExtension
     public function getFilters(): array
     {
         return [
+            new TwigFilter('add_attribute', [$this, 'addAttribute'], ['is_safe' => ['html']]),
             new TwigFilter('add_class', [$this, 'addClass'], ['is_safe' => ['html']]),
             new TwigFilter('remove_class', [$this, 'removeClass'], ['is_safe' => ['html']]),
         ];
+    }
+
+    public function addAttribute(HtmlElement $htmlElement, string $attribute, string $value = null): HtmlElement
+    {
+        return $htmlElement->withAttribute($attribute, $value);
     }
 
     public function addClass(HtmlElement $htmlElement, string ...$classes): HtmlElement
