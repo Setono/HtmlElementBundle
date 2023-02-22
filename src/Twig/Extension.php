@@ -21,10 +21,16 @@ final class Extension extends AbstractExtension
     public function getFilters(): array
     {
         return [
+            new TwigFilter('as_tag', [$this, 'asTag'], ['is_safe' => ['html']]),
             new TwigFilter('add_attribute', [$this, 'addAttribute'], ['is_safe' => ['html']]),
             new TwigFilter('add_class', [$this, 'addClass'], ['is_safe' => ['html']]),
             new TwigFilter('remove_class', [$this, 'removeClass'], ['is_safe' => ['html']]),
         ];
+    }
+
+    public function asTag(HtmlElement $htmlElement, string $tag): HtmlElement
+    {
+        return $htmlElement->withTag($tag);
     }
 
     public function addAttribute(HtmlElement $htmlElement, string $attribute, string $value = null): HtmlElement

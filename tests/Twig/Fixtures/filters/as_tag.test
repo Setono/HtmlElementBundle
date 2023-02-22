@@ -1,0 +1,8 @@
+--TEST--
+"as_tag" filter
+--TEMPLATE--
+{{ element|as_tag('h2') }}
+--DATA--
+return ['element' => new \Setono\HtmlElement\HtmlElement('h1', 'My header')]
+--EXPECT--
+<h2>My header</h2>
