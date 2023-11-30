@@ -15,7 +15,7 @@ final class Configuration implements ConfigurationInterface
 
         $rootNode = $treeBuilder->getRootNode();
 
-        /** @psalm-suppress MixedMethodCall, PossiblyUndefinedMethod, PossiblyNullReference */
+        /** @psalm-suppress MixedMethodCall, PossiblyUndefinedMethod, PossiblyNullReference, UndefinedInterfaceMethod */
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()
@@ -28,11 +28,6 @@ final class Configuration implements ConfigurationInterface
                             ->arrayNode('attributes')
                                 ->useAttributeAsKey('name')
                                 ->scalarPrototype()->end()
-                            ->end()
-                        ->end()
-                    ->end()
-                ->end()
-            ->end()
         ;
 
         return $treeBuilder;
