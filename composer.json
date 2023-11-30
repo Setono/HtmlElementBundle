@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=8.1",
-        "setono/html-element": "dev-master",
+        "setono/html-element": "^1.0@alpha",
         "symfony/config": "^6.0",
         "symfony/dependency-injection": "^6.0",
         "symfony/http-foundation": "^6.0",
@@ -24,10 +24,10 @@
         "matthiasnoback/symfony-dependency-injection-test": "^4.3",
         "nyholm/symfony-bundle-test": "^2.0",
         "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^9.6",
         "psalm/plugin-phpunit": "^0.18",
-        "psalm/plugin-symfony": "^5.0",
-        "setono/code-quality-pack": "^2.4"
+        "psalm/plugin-symfony": "^5.1",
+        "setono/code-quality-pack": "^2.6"
     },
     "prefer-stable": true,
     "autoload": {
