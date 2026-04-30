@@ -33,7 +33,7 @@ final class Extension extends AbstractExtension
         return $htmlElement->withTag($tag);
     }
 
-    public function addAttribute(HtmlElement $htmlElement, string $attribute, string $value = null): HtmlElement
+    public function addAttribute(HtmlElement $htmlElement, string $attribute, ?string $value = null): HtmlElement
     {
         return $htmlElement->withAttribute($attribute, $value);
     }

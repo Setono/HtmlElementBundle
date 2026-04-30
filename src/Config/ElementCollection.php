@@ -34,9 +34,6 @@ final class ElementCollection
         $this->elements[$element->name] = $element;
     }
 
-    /**
-     * @phpstan-assert-if-true Element $this->elements[$name]
-     */
     public function has(string $name): bool
     {
         return isset($this->elements[$name]);
@@ -44,10 +41,6 @@ final class ElementCollection
 
     public function get(string $name): Element
     {
-        if (!$this->has($name)) {
-            throw new \InvalidArgumentException(sprintf('No element with name %s exists', $name));
-        }
-
-        return $this->elements[$name];
+        return $this->elements[$name] ?? throw new \InvalidArgumentException(sprintf('No element with name %s exists', $name));
     }
 }
