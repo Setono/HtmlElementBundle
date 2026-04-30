@@ -15,7 +15,7 @@ jobs:
         strategy:
             matrix:
                 php-version:
-                    - "8.1"
+                    - "8.2"
 
                 dependencies:
                     - "highest"
@@ -53,7 +53,6 @@ jobs:
         strategy:
             matrix:
                 php-version:
-                    - "8.1"
                     - "8.2"
                     - "8.3"
                     - "8.4"
@@ -65,12 +64,6 @@ jobs:
                     - "~6.4.0"
                     - "~7.4.0"
                     - "~8.0.0"
-
-                exclude:
-                    -   php-version: "8.1"
-                        symfony: "~7.4.0"
-                    -   php-version: "8.1"
-                        symfony: "~8.0.0"
 
         steps:
             -   name: "Checkout"
@@ -82,7 +75,7 @@ jobs:
                     coverage: "none"
                     extensions: "${{ env.PHP_EXTENSIONS }}"
                     php-version: "${{ matrix.php-version }}"
-                    tools: "composer-require-checker, composer-unused, flex"
+                    tools: "composer-dependency-analyser, flex"
 
             -   name: "Install composer dependencies"
                 uses: "ramsey/composer-install@v3"
@@ -91,11 +84,8 @@ jobs:
                 env:
                     SYMFONY_REQUIRE: "${{ matrix.symfony }}"
 
-            -   name: "Run maglnet/composer-require-checker"
-                run: "composer-require-checker check"
-
-            -   name: "Run composer-unused/composer-unused"
-                run: "composer-unused"
+            -   name: "Run composer-dependency-analyser"
+                run: "composer-dependency-analyser"
 
     static-code-analysis:
         name: "Static Code Analysis"
@@ -105,7 +95,6 @@ jobs:
         strategy:
             matrix:
                 php-version:
-                    - "8.1"
                     - "8.2"
                     - "8.3"
                     - "8.4"
@@ -117,12 +106,6 @@ jobs:
                     - "~6.4.0"
                     - "~7.4.0"
                     - "~8.0.0"
-
-                exclude:
-                    -   php-version: "8.1"
-                        symfony: "~7.4.0"
-                    -   php-version: "8.1"
-                        symfony: "~8.0.0"
 
         steps:
             -   name: "Checkout"
@@ -154,7 +137,6 @@ jobs:
         strategy:
             matrix:
                 php-version:
-                    - "8.1"
                     - "8.2"
                     - "8.3"
                     - "8.4"
@@ -167,12 +149,6 @@ jobs:
                     - "~6.4.0"
                     - "~7.4.0"
                     - "~8.0.0"
-
-                exclude:
-                    -   php-version: "8.1"
-                        symfony: "~7.4.0"
-                    -   php-version: "8.1"
-                        symfony: "~8.0.0"
 
         steps:
             -   name: "Checkout"
@@ -229,6 +205,7 @@ jobs:
                 run: "vendor/bin/phpunit --coverage-clover=.build/logs/clover.xml"
 
             -   name: "Send code coverage report to Codecov.io"
-                env:
-                    CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
-                run: "bash <(curl -s https://codecov.io/bash)"
+                uses: "codecov/codecov-action@v5"
+                with:
+                    files: ".build/logs/clover.xml"
+                    token: "${{ secrets.CODECOV_TOKEN }}"
