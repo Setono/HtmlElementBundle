@@ -35,7 +35,7 @@ final class ElementCollection
     }
 
     /**
-     * @psalm-assert-if-true Element $this->elements[$name]
+     * @phpstan-assert-if-true Element $this->elements[$name]
      */
     public function has(string $name): bool
     {

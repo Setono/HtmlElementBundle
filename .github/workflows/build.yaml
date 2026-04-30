@@ -144,7 +144,7 @@ jobs:
                     SYMFONY_REQUIRE: "${{ matrix.symfony }}"
 
             -   name: "Static analysis"
-                run: "vendor/bin/psalm"
+                run: "vendor/bin/phpstan analyse"
 
     unit-tests:
         name: "Unit tests"
