@@ -19,11 +19,23 @@
         "twig/twig": "^3.5"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.50",
+        "infection/infection": "^0.29.14 || ^0.30.3 || ^0.31.9 || ^0.32.7",
+        "jangregor/phpstan-prophecy": "^2.3",
         "matthiasnoback/symfony-config-test": "^4.3 || ^5.2 || ^6.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.3 || ^5.1 || ^6.3",
         "nyholm/symfony-bundle-test": "^2.0 || ^3.0",
+        "phpspec/prophecy-phpunit": "^2.5",
+        "phpstan/extension-installer": "^1.4.3",
+        "phpstan/phpstan": "^2.1.46",
+        "phpstan/phpstan-phpunit": "^2.0.16",
+        "phpstan/phpstan-strict-rules": "^2.0.10",
         "phpstan/phpstan-symfony": "^2.0",
-        "setono/code-quality-pack": "^3.3"
+        "phpstan/phpstan-webmozart-assert": "^2.0",
+        "phpunit/phpunit": "^11.5.55",
+        "rector/rector": "^2.4.1",
+        "shipmonk/composer-dependency-analyser": "^1.8.4",
+        "sylius-labs/coding-standard": "^4.5"
     },
     "prefer-stable": true,
     "autoload": {

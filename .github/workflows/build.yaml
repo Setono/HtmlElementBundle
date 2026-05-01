@@ -70,8 +70,6 @@ jobs:
                         symfony: "~8.0.0"
                     -   php-version: "8.3"
                         symfony: "~8.0.0"
-                    -   php-version: "8.4"
-                        symfony: "~8.0.0"
 
         steps:
             -   name: "Checkout"
@@ -119,8 +117,6 @@ jobs:
                     -   php-version: "8.2"
                         symfony: "~8.0.0"
                     -   php-version: "8.3"
-                        symfony: "~8.0.0"
-                    -   php-version: "8.4"
                         symfony: "~8.0.0"
 
         steps:
@@ -170,8 +166,6 @@ jobs:
                     -   php-version: "8.2"
                         symfony: "~8.0.0"
                     -   php-version: "8.3"
-                        symfony: "~8.0.0"
-                    -   php-version: "8.4"
                         symfony: "~8.0.0"
 
         steps:
@@ -229,7 +223,7 @@ jobs:
                 run: "vendor/bin/phpunit --coverage-clover=.build/logs/clover.xml"
 
             -   name: "Send code coverage report to Codecov.io"
-                uses: "codecov/codecov-action@v5"
+                uses: "codecov/codecov-action@v6"
                 with:
                     files: ".build/logs/clover.xml"
                     token: "${{ secrets.CODECOV_TOKEN }}"
